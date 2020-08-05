@@ -10,7 +10,7 @@ function Home() {
   const [dataArray, setDataArray] = useState([]);
 
   useEffect(() => {
-    const socket = io.connect("http://localhost:3001");
+    const socket = io.connect("https://weather-rabbit.herokuapp.com");
     socket.on("timeline", data => {
       console.log(data);
       setDataArray(state => [data, ...state]);
