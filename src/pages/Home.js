@@ -8,9 +8,10 @@ import io from "socket.io-client";
 
 function Home() {
   const [dataArray, setDataArray] = useState([]);
+  const serverUrl = process.env.SERVER_URL;
 
   useEffect(() => {
-    const socket = io.connect("https://weather-rabbit.herokuapp.com");
+    const socket = io.connect(serverUrl);
     socket.on("timeline", data => {
       console.log(data);
       setDataArray(state => [data, ...state]);
